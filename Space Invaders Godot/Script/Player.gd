@@ -40,8 +40,6 @@ func _shoot(delta: float):
 	var new_shoot = SHOOT.instance()
 	current_scene.add_child(new_shoot)
 	new_shoot.global_position = current_gun_position
-	
-	print(current_gun_position)
 
 func _physics_process(delta):
 	move_and_slide(speed * MAX_SPEED)
