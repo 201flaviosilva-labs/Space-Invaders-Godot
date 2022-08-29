@@ -14,7 +14,7 @@ const SHOOT_MARGIN = 15
 var isLeftNextShoot = true
 
 # Move
-const MAX_SPEED = 100
+export var MAX_SPEED = 100
 var speed = Vector2(0,0)
 
 func _ready():
@@ -45,3 +45,12 @@ func _physics_process(delta):
 	move_and_slide(speed * MAX_SPEED)
 	transform.origin.x = clamp(transform.origin.x, 32, 1280-32)
 	pass
+	
+func _dead():
+	get_tree().reload_current_scene()
+	pass
+
+
+func _on_Collision_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Enemy"): _dead()
+	pass # Replace with function body.

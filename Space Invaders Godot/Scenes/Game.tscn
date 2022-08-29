@@ -1,12 +1,52 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Prefabs/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Prefabs/Enemies.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Sprites/Background.png" type="Texture" id=3]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec2 Direction = vec2(0,-1);
+uniform float Speed = 0.08;
+
+void fragment(){
+	COLOR = texture(TEXTURE, UV + (Direction * TIME * Speed));
+}
+"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/Direction = Vector2( 0, -1 )
+shader_param/Speed = 0.08
+
+[sub_resource type="VisualScript" id=3]
+data = {
+"base_type": "TextureRect",
+"functions": [ {
+"data_connections": [  ],
+"function_id": -1,
+"name": "f_312843592",
+"nodes": [  ],
+"scroll": Vector2( 0, -214 ),
+"sequence_connections": [  ]
+} ],
+"is_tool_script": false,
+"signals": [  ],
+"variables": [  ],
+"vs_unify": true
+}
 
 [node name="Game" type="Node2D"]
+
+[node name="Background" type="Sprite" parent="."]
+material = SubResource( 2 )
+position = Vector2( 643.5, 360.5 )
+scale = Vector2( 1.283, 1.195 )
+texture = ExtResource( 3 )
+script = SubResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 640, 650 )
 
-[node name="Enemy" parent="." instance=ExtResource( 1 )]
-position = Vector2( 588, 34 )
+[node name="Enemies" parent="." instance=ExtResource( 1 )]

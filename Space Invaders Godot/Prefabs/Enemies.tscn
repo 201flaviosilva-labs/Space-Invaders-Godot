@@ -1,0 +1,128 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Prefabs/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Script/Enemies.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Sprites/Aliens/Ravi.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Aliens/Olho.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 366.5 )
+
+[node name="Enemies" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Enemies Rows" type="Node2D" parent="."]
+
+[node name="Row 1" type="Node2D" parent="Enemies Rows"]
+position = Vector2( 300, 50 )
+
+[node name="Enemy" parent="Enemies Rows/Row 1" instance=ExtResource( 1 )]
+TEXTURE = ExtResource( 3 )
+
+[node name="Enemy2" parent="Enemies Rows/Row 1" instance=ExtResource( 1 )]
+position = Vector2( 100, 0 )
+TEXTURE = ExtResource( 3 )
+
+[node name="Enemy3" parent="Enemies Rows/Row 1" instance=ExtResource( 1 )]
+position = Vector2( 200, 0 )
+TEXTURE = ExtResource( 3 )
+
+[node name="Enemy4" parent="Enemies Rows/Row 1" instance=ExtResource( 1 )]
+position = Vector2( 300, 0 )
+TEXTURE = ExtResource( 3 )
+
+[node name="Enemy5" parent="Enemies Rows/Row 1" instance=ExtResource( 1 )]
+position = Vector2( 400, 0 )
+TEXTURE = ExtResource( 3 )
+
+[node name="Enemy6" parent="Enemies Rows/Row 1" instance=ExtResource( 1 )]
+position = Vector2( 500, 0 )
+TEXTURE = ExtResource( 3 )
+
+[node name="Enemy7" parent="Enemies Rows/Row 1" instance=ExtResource( 1 )]
+position = Vector2( 600, 0 )
+TEXTURE = ExtResource( 3 )
+
+[node name="Row 2" type="Node2D" parent="Enemies Rows"]
+position = Vector2( 300, 150 )
+
+[node name="Enemy" parent="Enemies Rows/Row 2" instance=ExtResource( 1 )]
+health = 2
+TEXTURE = ExtResource( 4 )
+
+[node name="Enemy2" parent="Enemies Rows/Row 2" instance=ExtResource( 1 )]
+position = Vector2( 100, 0 )
+health = 2
+TEXTURE = ExtResource( 4 )
+
+[node name="Enemy3" parent="Enemies Rows/Row 2" instance=ExtResource( 1 )]
+position = Vector2( 200, 0 )
+health = 2
+TEXTURE = ExtResource( 4 )
+
+[node name="Enemy4" parent="Enemies Rows/Row 2" instance=ExtResource( 1 )]
+position = Vector2( 300, 0 )
+health = 2
+TEXTURE = ExtResource( 4 )
+
+[node name="Enemy5" parent="Enemies Rows/Row 2" instance=ExtResource( 1 )]
+position = Vector2( 400, 0 )
+health = 2
+TEXTURE = ExtResource( 4 )
+
+[node name="Enemy6" parent="Enemies Rows/Row 2" instance=ExtResource( 1 )]
+position = Vector2( 500, 0 )
+health = 2
+TEXTURE = ExtResource( 4 )
+
+[node name="Enemy7" parent="Enemies Rows/Row 2" instance=ExtResource( 1 )]
+position = Vector2( 600, 0 )
+health = 2
+TEXTURE = ExtResource( 4 )
+
+[node name="Row 3" type="Node2D" parent="Enemies Rows"]
+position = Vector2( 300, 250 )
+
+[node name="Enemy" parent="Enemies Rows/Row 3" instance=ExtResource( 1 )]
+health = 1
+
+[node name="Enemy2" parent="Enemies Rows/Row 3" instance=ExtResource( 1 )]
+position = Vector2( 100, 0 )
+health = 1
+
+[node name="Enemy3" parent="Enemies Rows/Row 3" instance=ExtResource( 1 )]
+position = Vector2( 200, 0 )
+health = 1
+
+[node name="Enemy4" parent="Enemies Rows/Row 3" instance=ExtResource( 1 )]
+position = Vector2( 300, 0 )
+health = 1
+
+[node name="Enemy5" parent="Enemies Rows/Row 3" instance=ExtResource( 1 )]
+position = Vector2( 400, 0 )
+health = 1
+
+[node name="Enemy6" parent="Enemies Rows/Row 3" instance=ExtResource( 1 )]
+position = Vector2( 500, 0 )
+health = 1
+
+[node name="Enemy7" parent="Enemies Rows/Row 3" instance=ExtResource( 1 )]
+position = Vector2( 600, 0 )
+health = 1
+
+[node name="Left" type="Area2D" parent="."]
+position = Vector2( 10, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+position = Vector2( 0, 350 )
+shape = SubResource( 1 )
+
+[node name="Right" type="Area2D" parent="."]
+position = Vector2( 1270, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+position = Vector2( 0, 350 )
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="Left" to="." method="_on_Left_area_entered"]
+[connection signal="area_entered" from="Right" to="." method="_on_Right_area_entered"]
