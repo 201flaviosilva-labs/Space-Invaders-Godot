@@ -6,10 +6,9 @@ stages:
 
 variables:
   EXPORT_NAME: Space-Invaders
-  FOLDER_PATH: 'Space Invaders Godot'
 
 before_script:
-  - cd $FOLDER_PATH
+  - cd 'Space Invaders Godot'
   - mkdir -v -p build/linux
   - mkdir -v -p build/windows
   - mkdir -v -p build/mac
