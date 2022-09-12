@@ -5,13 +5,15 @@ stages:
   - deploy
 
 variables:
-  EXPORT_NAME: Space-Invaders 
+  EXPORT_NAME: Space-Invaders
+  FOLDER_PATH: Project
 
 before_script:
   - mkdir -v -p build/linux
   - mkdir -v -p build/windows
   - mkdir -v -p build/mac
   - mkdir -v -p build/web
+  - cd $FOLDER_PATH
 
 linux:
   stage: export
