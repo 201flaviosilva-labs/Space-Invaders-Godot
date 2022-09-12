@@ -6,7 +6,7 @@ stages:
 
 variables:
   EXPORT_NAME: Space-Invaders
-  FOLDER_PATH: Project
+  FOLDER_PATH: Space Invaders Godot
 
 before_script:
   - mkdir -v -p build/linux
