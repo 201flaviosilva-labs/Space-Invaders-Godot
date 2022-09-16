@@ -9,8 +9,8 @@ on:
 
 env:
   GODOT_VERSION: 3.4.2
-  EXPORT_NAME: Space Invaders Godot # Project Name
-  FOLDER_PATH: "Space Invaders Godot"
+  EXPORT_NAME: Space-Invaders-Godot # Project Name
+  FOLDER_PATH: SpaceInvadersGodot
 
 jobs:
   export-web:
